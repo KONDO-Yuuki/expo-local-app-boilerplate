@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import uuid from "react-native-uuid";
+import { createSlice, PayloadAction, nanoid } from "@reduxjs/toolkit";
 
 export type Todo = {
   id: string;
@@ -20,7 +19,7 @@ export const todoSlice = createSlice({
       return [
         ...state,
         {
-          id: uuid.v4().toString(),
+          id: nanoid(),
           createdAt: new Date().toISOString(),
           ...action.payload,
         },
